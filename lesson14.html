@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sampleApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Libraries/angular.min.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet">
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet">
+    <script>
+        var app = angular.module('sampleApp',[])
+        app.controller('SampleAppCtr',function($scope){
+            $scope.items = ['list1','list2','list3','list4'];
+            $scope.selected = 'list3';
+        });
+    </script>
+</head>
+<body>
+
+<div ng-controller="SampleAppCtr">
+    <select ng-model="selected" ng-options="item for item in items"></select>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sampleApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Libraries/angular.min.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet">
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet">
+    <script>
+        var app = angular.module('sampleApp',[])
+        app.controller('SampleAppCtr',function($scope){
+            $scope.items = [{"name":"name1","value":"nalueq"},{"name":"name2","value":"val3"},{"name":"name3","value":"val3"}];
+        });
+    </script>
+</head>
+<body>
+<div ng-controller="SampleAppCtr">
+    <div>{{items.length}}</div>
+    <ul>
+        <li ng-repeat="list in items">{{list.name}}</li>
+    </ul>
+    <div><input type="text" value="{{items[1].name}}"></div>
+    <div><input type="text" ng-model="items[1].name"> </div>
+</div>
+</body>
+</html>
