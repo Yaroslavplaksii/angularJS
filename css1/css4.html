@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sampleApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Libraries/angular.min.js"></script>
+    <link href="../Libraries/bootstrap.css" rel="stylesheet">
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet">
+    <script>
+        var app = angular.module('sampleApp',[]);
+
+
+        app.controller('SampleAppCtr',function($scope){
+            $scope.celectedClass = 'LiteGreeen';
+            $scope.className = [{"displayName":"lite Green","value":"liteGreen"},
+                {"displayName":"lite Blue","value":"liteBlue"},
+                {"displayName":"lite Coral","value":"liteCoral"}]
+        });
+    </script>
+    <style>
+        div{
+            display:inline-block;
+            border:2px solid green;
+            border-radius: 3px;
+            margin:14px;
+            padding:30px;
+        }
+        .liteBlue{
+            background: blue;
+        }
+       .liteCoral{
+            background: red;
+        }
+        .liteGreen{
+            background: green;
+        }
+    </style>
+</head>
+<body ng-controller="SampleAppCtr">
+<div ng-repeat="name in className">
+  <input type="radio" ng-model="$parent.celectedClass" value="{{name.value}}">{{name.displayName}}<br>
+</div>
+<div id="id1" ng-class="celectedClass">Element1</div>
+
+</body>
+</html>
