@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sampleApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Libraries/angular.min.js"></script>
+    <link href="../Libraries/bootstrap.css" rel="stylesheet">
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet">
+    <script>
+        var app = angular.module('sampleApp',[]);
+
+
+        app.controller('SampleAppCtr',function($scope){
+            $scope.type= '';
+            $scope.clickHandler = function(event){
+                console.log(event);
+                $scope.type=event;
+            }
+            $scope.newHandler = function(color){
+                console.log(color);
+            }
+        });
+    </script>
+    <style>
+        div{
+            display:inline-block;
+            border:2px solid green;
+            border-radius: 3px;
+            margin:14px;
+            padding:30px;
+        }
+        .liteBlue{
+            background: blue;
+        }
+       .liteCoral{
+            background: red;
+        }
+        .liteGreen{
+            background: green;
+        }
+    </style>
+</head>
+<body ng-controller="SampleAppCtr">
+
+<button ng-click="clickHandler($event)" ng-onmouseover="newHandler()">Ok</button>
+<ul>
+    <li ng-repeat="item in ['red','blue','green']" ng-click="newHandler(item)">{{item}}</li>
+</ul>
+
+
+
+</body>
+</html>

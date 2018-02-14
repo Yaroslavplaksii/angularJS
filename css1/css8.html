@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sampleApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Libraries/angular.min.js"></script>
+    <link href="../Libraries/bootstrap.css" rel="stylesheet">
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet">
+    <script>
+        angular.module('sampleApp',[]).controller('SampleAppCtr',function($scope){
+            $scope.tasks = [{"action":"Task 1","complete":true},
+                {"action":"Task 2","complete":true},
+                {"action":"Task 3","complete":false},
+                {"action":"Task 4","complete":true}];
+
+        });
+    </script>
+    <style>
+        div{
+            display:inline-block;
+            border:2px solid green;
+            border-radius: 3px;
+            margin:14px;
+            padding:30px;
+        }
+        .liteBlue{
+            background: blue;
+        }
+       .liteCoral{
+            background: red;
+        }
+        .liteGreen{
+            background: green;
+        }
+    </style>
+</head>
+<body ng-controller="SampleAppCtr">
+{{(tasks|filter:{"complete":"false"}).length}}
+<table class="table">
+    <tr ng-repeat="task in tasks">
+        <td>{{task.action}}</td>
+        <td><input type="checkbox" ng-model="task.complete"</td>
+    </tr>
+</table>
+</body>
+</html>

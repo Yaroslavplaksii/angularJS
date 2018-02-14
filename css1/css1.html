@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sampleApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../Libraries/angular.min.js"></script>
+    <link href="../Libraries/bootstrap.css" rel="stylesheet">
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet">
+    <script>
+        var app = angular.module('sampleApp',[]);
+        app.controller('SampleAppCtr',function($scope){
+            $scope.hidenElem1 = false;
+            $scope.hidenElem2 = false;
+            $scope.hidenElem3 = false;
+        });
+    </script>
+    <style>
+        div{
+            display:inline-block;
+            border:2px solid green;
+            border-radius: 3px;
+            margin:14px;
+            padding:30px;
+        }
+        #id1{
+            background: blue;
+        }
+        #id2{
+            background: red;
+        }
+        #id3{
+            background: green;
+        }
+    </style>
+</head>
+<body ng-controller="SampleAppCtr">
+<div>
+    <input type="checkbox" ng-model="hidenElem1">Element1<br>
+    <input type="checkbox" ng-model="hidenElem2">Element2<br>
+    <input type="checkbox" ng-model="hidenElem3">Element3<br>
+</div>
+<div id="id1" ng-hide="hidenElem1">Element1</div>
+<div id="id2" ng-hide="hidenElem2">Element2</div>
+<div id="id3" ng-hide="hidenElem3">Element3</div>
+</body>
+</html>
